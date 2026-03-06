@@ -1,28 +1,30 @@
 #include<stdio.h>
 int main()
 {
- int i,j,n,temp,minindex;
- printf("enter number of elements:");
+ int n,i,search,found=0;
+ printf("enter number of elements in the array:");
  scanf("%d",&n);
  int arr[n];
- printf("enter %d elements:\n",n);
- for(i=0;i<n;i++)
- scanf("%d",&arr[i]);
+ printf("enter elements of the array:\n");
  for(i=0;i<n;i++)
  {
-  minindex=i;
-  for(j=i+1;j<n;j++)
-  {
-   if(arr[j]<arr [minindex])
-   minindex=j;
-  }
-  temp=arr[i];
-  arr[i]=arr[minindex];
-  arr[minindex]=temp;
+  scanf("%d",&arr[i]);
  }
- printf("sorted array:\n");
- for(i=0;i<n-1;i++)
- printf("%d",arr[i]);
+ printf("enter elements to search:");
+ scanf("%d",&search);
+ for(i=0;i<n;i++)
+ {
+  if(arr[i]==search)
+  {
+   found=1;
+   printf("element %d found at index %d.\n",search,i);
+   break;
+  }
+ }
+ if(!found)
+ {
+  printf("element %d not found in the array.\n",search);
+ }
  return 0;
 }
 
